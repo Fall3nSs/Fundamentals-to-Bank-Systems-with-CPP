@@ -1,15 +1,19 @@
-﻿//Ahmet "FallenS" Akyol
+//Ahmet "FallenS" Akyol
 #include <iostream>
 using namespace std;
 
-int customBalance = 100;
-int accountBalance = 200;
+double customBalance = 100;
+double accountBalance = 200;
 
 int proccessNumber;
 
-int dw;
+double dw;
 
 bool x = false;
+
+void displayMenu() {
+	cout << "Para Yatirma:1 Para Cekme:2 Bakiye Sorgulama:3 Cikis:4\n";
+}
 
 bool trueConverter() {
 	if (1 + 1 == 2)
@@ -23,8 +27,8 @@ int main()
 	trueConverter();
 
 	while (x) {
-		cout << "Para Yatirma:1 Para Cekme:2 Bakiye Sorgulama:3 Cikis:4\n";
 
+		displayMenu();
 
 		cout << "Yapmak istediginiz islemin kodunu yazin: "; cin >> proccessNumber;
 
@@ -52,7 +56,7 @@ int main()
 				break;
 			}
 			else {
-				cout << "Yatıracak paranız bulunmamaktadır!";
+				cout << "Yatıracak paranız bulunmamaktadır!\n";
 				break;
 			}
 		case 3:
@@ -67,4 +71,3 @@ int main()
 		}
 	}
 }
-
