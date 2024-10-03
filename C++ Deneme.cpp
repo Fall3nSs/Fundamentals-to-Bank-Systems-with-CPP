@@ -55,7 +55,7 @@ int main()
 			cout << "Bakiyeniz: " << accountBalance << endl;
 			break;
 		case 4:
-			cin >> "Cikis Yapiliyor...";
+			cout << "Cikis Yapiliyor...";
 			return 0;
 		default:
 			cout << "Böyle bir islem bulunmamaktadir!" << endl;
