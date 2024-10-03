@@ -1,35 +1,27 @@
-//Ahmet "FallenS" Akyol
+//Ahmet "Fall3nSs" Akyol
 #include <iostream>
 using namespace std;
 
-double customBalance = 100;
-double accountBalance = 200;
-
+int customBalance = 100;
+int accountBalance = 200;
 int proccessNumber;
+int dw;
 
-double dw;
-
-bool x = false;
-
-void displayMenu() {
+void displayMenu() 
+{
 	cout << "Para Yatirma:1 Para Cekme:2 Bakiye Sorgulama:3 Cikis:4\n";
 }
 
-bool trueConverter() {
-	if (1 + 1 == 2)
-		x = true;
-	return x;
+void userOperations() 
+{
+	//Hesap oluşturma, giriş, çıkış
 }
 
 int main()
 {
-
-	trueConverter();
-
-	while (x) {
+	while (true) {
 
 		displayMenu();
-
 		cout << "Yapmak istediginiz islemin kodunu yazin: "; cin >> proccessNumber;
 
 		switch (proccessNumber) {
@@ -45,7 +37,7 @@ int main()
 			}
 			else
 				cout << "Yeterli paraniz bulunmamaktadır.\n";
-				break;
+			break;
 		case 2:
 			cout << "Cekmek istediginiz tutari girin:"; cin >> dw;
 			if (accountBalance >= dw) {
@@ -56,15 +48,15 @@ int main()
 				break;
 			}
 			else {
-				cout << "Yatıracak paranız bulunmamaktadır!\n";
+				cout << "Yatiracak paraniz bulunmamaktadir!\n";
 				break;
 			}
 		case 3:
 			cout << "Bakiyeniz: " << accountBalance << endl;
 			break;
 		case 4:
-			abort();
-			break;
+			cin >> "Cikis Yapiliyor...";
+			return 0;
 		default:
 			cout << "Böyle bir islem bulunmamaktadir!" << endl;
 			break;
