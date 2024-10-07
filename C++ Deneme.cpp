@@ -1,65 +1,70 @@
 //Ahmet "Fall3nSs" Akyol
 #include <iostream>
+#include <iomanip>
 using namespace std;
 
-int customBalance = 100;
-int accountBalance = 200;
-int proccessNumber;
-int dw;
+void showBalance();
+void depositMoney(double w);
+void drawMoney(double w);
+void displayMenu();
 
-void displayMenu() 
-{
-	cout << "Para Yatirma:1 Para Cekme:2 Bakiye Sorgulama:3 Cikis:4\n";
-}
-
-void userOperations() 
-{
-	//Hesap oluşturma, giriş, çıkış
-}
+char symbol;
+double Balance = 0;
+double dw;
 
 int main()
 {
-	while (true) {
-
+	while (true)
+	{
 		displayMenu();
-		cout << "Yapmak istediginiz islemin kodunu yazin: "; cin >> proccessNumber;
 
-		switch (proccessNumber) {
-
-		case 1:
-			cout << "Yatirmak istediginiz tutari girin:"; cin >> dw;
-			if (dw <= customBalance) {
-				accountBalance += dw;
-				customBalance -= dw;
-				cout << "Yeni bakiyeniz: " << accountBalance << endl;
-				dw = 0;
+		switch (symbol) 
+		{
+			case '+':
+				depositMoney(dw);
 				break;
-			}
-			else
-				cout << "Yeterli paraniz bulunmamaktadır.\n";
-			break;
-		case 2:
-			cout << "Cekmek istediginiz tutari girin:"; cin >> dw;
-			if (accountBalance >= dw) {
-				accountBalance -= dw;
-				customBalance += dw;
-				cout << "Yeni bakiyeniz: " << accountBalance << endl;
-				dw = 0;
-				break;
-			}
-			else {
-				cout << "Yatiracak paraniz bulunmamaktadir!\n";
-				break;
-			}
-		case 3:
-			cout << "Bakiyeniz: " << accountBalance << endl;
-			break;
-		case 4:
-			cout << "Cikis Yapiliyor...";
-			return 0;
-		default:
-			cout << "Böyle bir islem bulunmamaktadir!" << endl;
-			break;
+				case '-':
+					drawMoney(dw);
+					break;
+					case '?':
+						showBalance();
+						break;
+						case 'x':
+							return 0;
+							default:
+								cout << "There is no operation like this!\n";
 		}
+	}
+}
+
+void displayMenu()
+{
+	cout << "1)Deposit Money(+)\n2)Withdraw Money(-)\n3)Show Balance(?)\n4)Exit(x)\nChoose your operation:"; cin >> symbol;
+}
+
+void showBalance()
+{
+	cout << "Your balance is: $" << setprecision(2) << fixed << Balance << '\n';
+}
+
+void depositMoney(double w)
+{
+	cout << "Enter the amount:"; cin >> w;
+	if (w > 0)
+		Balance = Balance + w;
+	else
+		cout << "That's not a valid amount!\n";
+}
+
+void drawMoney(double w)
+{
+	cout << "Enter the amount:"; cin >> w;
+	if (Balance >= w && w > 0)
+	{
+		Balance = Balance - w;
+	}
+	else 
+	{
+		cout << "That's not a valid amount!\n";
 	}
 }
